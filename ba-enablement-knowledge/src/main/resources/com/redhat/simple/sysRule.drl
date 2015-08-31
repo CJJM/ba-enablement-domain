@@ -1,0 +1,18 @@
+package com.redhat;
+
+import com.redhat.Business;
+import com.redhat.RuleResponse;
+import com.redhat.Reason;
+import java.util.ArrayList;
+
+rule "filter out Kansas"
+ruleflow-group "filter"
+dialect "mvel"
+
+	when
+		$business : Business(stateCode == "KS");
+		$response : RuleResponse(business == $business);
+	then
+		retract($business);
+		insert($response);
+end

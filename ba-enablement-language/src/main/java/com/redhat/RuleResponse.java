@@ -9,7 +9,23 @@ public class RuleResponse {
 	
 	private String responseCode; // e.g. success, failure, filtered, validation error...
 	
-	private Collection<Reason> reasons; // messages about why the response Code came bacl
+	public String getResponseCode() {
+		return responseCode;
+	}
+
+	public void setResponseCode(String responseCode) {
+		this.responseCode = responseCode;
+	}
+
+	public Collection<Reason> getReasons() {
+		return reasons;
+	}
+
+	public void setReasons(Collection<Reason> reasons) {
+		this.reasons = reasons;
+	}
+
+	private Collection<Reason> reasons; // messages about why the response Code came back
 
 	public Business getBusiness() {
 		return business;
