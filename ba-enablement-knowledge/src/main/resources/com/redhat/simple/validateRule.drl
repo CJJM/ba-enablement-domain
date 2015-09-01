@@ -1,0 +1,115 @@
+package com.redhat;
+
+import com.redhat.Business;
+import com.redhat.RuleResponse;
+import com.redhat.Reason;
+import java.util.ArrayList;
+
+rule "name field not null"
+ruleflow-group "validate"
+dialect "mvel"
+
+	when
+		$business : Business( name == null)
+	then
+		insert ( new String( "validate"));
+		Reason reason = new Reason();
+		reason.setReasonMessage( "Business field Name is null" );
+		insert ( reason );
+end	
+		
+rule "addressLine1 field not null"
+ruleflow-group "validate"
+dialect "mvel"
+
+	when
+		$business : Business( addressLine1 == null)
+	then
+		insert ( new String( "error"));
+		Reason reason = new Reason();
+		reason.setReasonMessage( "Business field addressLine1 is null" );
+		insert ( reason );		
+end	
+		
+rule "addressLine2 field not null"
+ruleflow-group "validate"
+dialect "mvel"
+
+	when
+		$business : Business( addressLine2 == null)
+	then
+		insert( new String( "error"));
+		Reason reason = new Reason();
+		reason.setReasonMessage( "Business field addressLine2 is null" );
+		insert( reason );
+end	
+		
+rule "phoneNumber field not null"
+ruleflow-group "validate"
+dialect "mvel"
+
+	when
+		$business : Business( phoneNumber == null)
+	then
+		insert ( new String( "error"));
+		Reason reason = new Reason();
+		reason.setReasonMessage( "Business field phoneNumber is null" );
+		insert ( reason );				
+end
+		
+		
+rule "city field not null"
+ruleflow-group "validate"
+dialect "mvel"
+
+	when
+		$business : Business( city == null)
+	then
+		insert( new String( "error"));
+		Reason reason = new Reason();
+		reason.setReasonMessage( "Business field city is null" );
+		insert ( reason );
+end	
+			
+				
+rule "stateCode field not null"
+ruleflow-group "validate"
+dialect "mvel"
+
+	when
+		$business : Business( stateCode == null)
+	then
+		insert ( new String( "error"));
+		Reason reason = new Reason();
+		reason.setReasonMessage( "Business field stateCode is null" );
+		insert ( reason );	
+end	
+	
+		
+rule "zipCode field not null"
+ruleflow-group "validate"
+dialect "mvel"
+
+	when
+		$business : Business( zipCode == null)
+	then
+		insert ( new String( "error"));
+		Reason reason = new Reason();
+		reason.setReasonMessage( "Business field zipCode is null" );
+		insert ( reason );				
+end
+		
+rule "federalTaxId field not null"
+ruleflow-group "validate"
+dialect "mvel"
+
+	when
+		$business : Business( federalTaxId == null)
+	then
+		insert ( new String( "error"));
+		Reason reason = new Reason();
+		reason.setReasonMessage( "Business field federalTaxId is null" );
+		insert ( reason );			
+		
+		
+end

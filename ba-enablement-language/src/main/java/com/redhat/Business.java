@@ -10,6 +10,7 @@ public class Business {
 	private String stateCode;
 	private String zipCode;
 	private String federalTaxId;
+		
 
 	public String getName() {
 		return name;
