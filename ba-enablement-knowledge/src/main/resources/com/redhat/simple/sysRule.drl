@@ -10,9 +10,10 @@ ruleflow-group "filter"
 dialect "mvel"
 
 	when
-		$business : Business(stateCode == "KS");
-		$response : RuleResponse(business == $business);
+		$business : Business( stateCode == "KS" )
 	then
-		retract($business);
-		insert($response);
+		insert ( new String( "filtered" ) );
+		Reason reason = new Reason();
+		reason.setReasonMessage( "business filtered from Kansas not found" );
+		insert ( reason );
 end
